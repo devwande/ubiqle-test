@@ -1,0 +1,11 @@
+{
+    "sections": {
+        "header": {"type": "header-image", "settings": {}},
+        "hero": {"type": "banner", "settings": {}},
+        "drops": {"type": "new-drops", "settings": {}},
+        "categories": {"type": "categories", "settings": {}},
+        "reviews": {"type": "reviews", "settings": {}},
+        "newsletter": {"type": "newsletter", "settings": {}}
+    },
+    "order": ["header", "hero", "drops", "categories", "reviews", "newsletter"]
+}

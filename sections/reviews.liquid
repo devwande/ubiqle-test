@@ -1,0 +1,26 @@
+<section class="reviews">
+  <div class="container">
+    <h2 class="section-title">REVIEWS</h2>
+    <div class="reviews__grid">
+      {% for i in (1..4) %}
+        <article class="review">
+          <header class="review__header">
+            <strong>Good Quality</strong>
+            <span class="review__rating">★★★★★</span>
+          </header>
+          <p>I highly recommend shopping from Kicks</p>
+          <img src="https://picsum.photos/500/320?random={{ 20 | plus: i }}" alt="Review image {{ i }}"/>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Reviews grid",
+  "settings": [],
+  "presets": [{"name": "Reviews grid"}]
+}
+{% endschema %}
+

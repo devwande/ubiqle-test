@@ -1,0 +1,137 @@
+<section class="hero" role="banner" aria-labelledby="hero-heading">
+  <div class="container">
+    <header class="hero__headline">
+      <h1 class="hero__title" id="hero-heading">
+        <span class="hero__dense">DENSE</span> 
+        <span class="hero__dot" aria-hidden="true">.</span> 
+        <span class="hero__pxi">PXI</span>
+      </h1>
+    </header>
+    <div class="hero__media">
+      <!-- Vertical label on the left -->
+      <div class="hero__label">
+        <span>Nike product of the year</span>
+      </div>
+      
+      <!-- Main product image -->
+      <div class="hero__image">
+        {% if section.settings.hero_image != blank %}
+          <img 
+            src="{{ section.settings.hero_image | image_url: width: 1600 }}" 
+            alt="{{ section.settings.hero_heading | escape }}" 
+            width="1600" 
+            height="700" 
+            loading="eager" 
+            class="hero__img"
+          />
+        {% else %}
+          <img 
+            src="https://picsum.photos/1600/700?random=1" 
+            alt="Hero image placeholder" 
+            width="1600" 
+            height="700" 
+            loading="eager" 
+            class="hero__img"
+          />
+        {% endif %}
+      </div>
+      
+      <!-- Product copy overlay -->
+      <div class="hero__copy">
+        <h2 class="hero__product">{{ section.settings.hero_heading | default: 'NIKE AIR MAX' }}</h2>
+        <p class="hero__subtitle">{{ section.settings.hero_subtitle | default: 'Nike introducing the new air max for everyones comfort' }}</p>
+        {% if section.settings.hero_cta_link != blank %}
+          <a class="btn btn--primary hero__cta" href="{{ section.settings.hero_cta_link }}" aria-label="{{ section.settings.hero_cta_label | default: 'Shop now' }} - {{ section.settings.hero_heading | default: 'NIKE AIR MAX' }}">
+            {{ section.settings.hero_cta_label | default: 'Shop now' }}
+          </a>
+        {% else %}
+          <span class="btn btn--primary hero__cta btn--disabled" role="button" aria-disabled="true">
+            {{ section.settings.hero_cta_label | default: 'Shop now' }}
+          </span>
+        {% endif %}
+      </div>
+      
+      <!-- Thumbnail images on the right -->
+      <div class="hero__thumbnails">
+        <div class="hero__thumb">
+          <img src="https://picsum.photos/200/150?random=2" alt="Product thumbnail 1" loading="lazy" />
+        </div>
+        <div class="hero__thumb">
+          <img src="https://picsum.photos/200/150?random=3" alt="Product thumbnail 2" loading="lazy" />
+        </div>
+      </div>
+      
+      <!-- Slider indicators -->
+      <div class="hero__indicators">
+        <span class="hero__dot active"></span>
+        <span class="hero__dot"></span>
+        <span class="hero__dot"></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "tag": "section",
+  "class": "section-hero",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content Settings"
+    },
+    {
+      "type": "text",
+      "id": "hero_heading",
+      "label": "Product Heading",
+      "default": "NIKE AIR MAX",
+      "info": "Main product title displayed on the hero banner"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_subtitle",
+      "label": "Subtitle",
+      "default": "Nike introducing the new air max for everyone's comfort",
+      "info": "Brief description displayed below the heading"
+    },
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "hero_cta_label",
+      "label": "Button Text",
+      "default": "Shop now",
+      "info": "Text displayed on the call-to-action button"
+    },
+    {
+      "type": "url",
+      "id": "hero_cta_link",
+      "label": "Button Link",
+      "info": "URL the button should link to"
+    },
+    {
+      "type": "header",
+      "content": "Visual Settings"
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image",
+      "info": "Recommended size: 1600x700px for optimal display"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "settings": {
+        "hero_heading": "NIKE AIR MAX",
+        "hero_subtitle": "Nike introducing the new air max for everyone's comfort",
+        "hero_cta_label": "Shop now"
+      }
+    }
+  ]
+}
+{% endschema %}

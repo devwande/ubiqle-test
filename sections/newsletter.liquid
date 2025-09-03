@@ -1,0 +1,25 @@
+<section class="cta">
+  <div class="container">
+    <div class="cta__box">
+      <div class="cta__copy">
+        <h3>JOIN OUR KICKSPLUS CLUB & GET 15% OFF</h3>
+        <p>Sign up for free! Join the community.</p>
+        <form method="post" action="/contact#newsletter" class="cta__form">
+          <input type="hidden" name="form_type" value="customer" />
+          <input type="email" name="email" placeholder="Email address" required />
+          <button class="btn btn--primary" type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="cta__brand">KICKS</div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Newsletter CTA",
+  "settings": [],
+  "presets": [{"name": "Newsletter CTA"}]
+}
+{% endschema %}
+

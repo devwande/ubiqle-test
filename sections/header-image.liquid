@@ -1,0 +1,64 @@
+<section class="top-header" role="img" aria-label="Site header banner">
+  <div class="top-header__nav">
+    <div class="top-header__box">
+      {% if section.settings.header_image != blank %}
+        <div class="top-header__nav">
+          <div>
+            <p>New Drops 🔥</p>
+            <p>Men</p>
+            <p>Women</p>
+          </div>
+
+          <div>
+            <img src="{{ 'Logo.svg' | asset_url }}" alt="" width="" height="">
+          </div>
+
+          <div>
+            <img src="{{ 'Search.svg' | asset_url }}" alt="" width="" height="">
+            <img src="{{ 'Profile.svg' | asset_url }}" alt="" width="" height="">
+            <img src="{{ 'User.svg' | asset_url }}" alt="" width="" height="">
+          </div>
+        </div>
+      {% else %}
+        <div class="top-header__nav">
+          <div class="header-container header-nav__container">
+            <div class="header-nav">
+              <p>New Drops 🔥</p>
+              <div class="nav-items">
+                <p>Men</p>
+                <img src="{{ 'ArrowDown.svg' | asset_url }}" alt="ArrowDown placeholder" width={} height={}>
+              </div>
+
+              <div class="nav-items">
+                <p>Women</p>
+                <img src="{{ 'ArrowDown.svg' | asset_url }}" alt="ArrowDown placeholder" width={} height={}>
+              </div>
+            </div>
+
+            <div>
+              <img src="{{ 'Logo.svg' | asset_url }}" alt="Logo placeholder" width={28px} height={28px}>
+            </div>
+
+            <div class="header-nav">
+              <img src="{{ 'Search.svg' | asset_url }}" alt="Search Icon" width="" height="">
+              <img src="{{ 'User.svg' | asset_url }}" alt="" width="User Icon" height="">
+              <img src="{{ 'Profile.svg' | asset_url }}" alt="Profile Icon" width="" height="">
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Header Image",
+  "settings": [
+    {"type": "image_picker", "id": "header_image", "label": "Header image"},
+    {"type": "text", "id": "alt_text", "label": "Alt text", "default": "Site header banner"}
+  ],
+  "presets": [{"name": "Header Image"}]
+}
+{% endschema %}
+

@@ -1,0 +1,27 @@
+<section class="drops">
+  <div class="container">
+    <h2 class="section-title">DON'T MISS OUT<br/>NEW DROPS</h2>
+    <div class="drops__grid">
+      {% for i in (1..4) %}
+        <article class="card">
+          <div class="card__img">
+            <img src="https://picsum.photos/400/280?random={{ i }}" alt="Drop {{ i }}" loading="lazy"/>
+          </div>
+          <div class="card__body">
+            <h3 class="card__title">Adidas 4DFWD x Parley Running Shoes</h3>
+            <a class="btn btn--primary" href="#">View product — $125</a>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "New drops",
+  "settings": [],
+  "presets": [{"name": "New drops"}]
+}
+{% endschema %}
+
