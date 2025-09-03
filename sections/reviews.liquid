@@ -1,26 +1,120 @@
 <section class="reviews">
   <div class="container">
-    <h2 class="section-title">REVIEWS</h2>
+    <div class="reviews__heading">
+      <h2 class="section-title">REVIEWS</h2>
+      {% if section.settings.cta_link != blank %}
+        <a class="btn reviews__cta" href="{{ section.settings.cta_link }}">
+          {{ section.settings.cta_label | default: 'SEE ALL' }}
+        </a>
+      {% else %}
+        <span class="btn reviews__cta btn--disabled" role="button" aria-disabled="true">
+          {{ section.settings.cta_label | default: 'SEE ALL' }}
+        </span>
+      {% endif %}
+    </div>
+    
     <div class="reviews__grid">
-      {% for i in (1..4) %}
-        <article class="review">
-          <header class="review__header">
-            <strong>Good Quality</strong>
-            <span class="review__rating">★★★★★</span>
-          </header>
-          <p>I highly recommend shopping from Kicks</p>
-          <img src="https://picsum.photos/500/320?random={{ 20 | plus: i }}" alt="Review image {{ i }}"/>
-        </article>
-      {% endfor %}
+      <!-- Review 1: Young man with green shirt, Jordan 1s -->
+      <article class="review">
+        <div class="review__content">
+          <div class="review__header">
+            <div class="review__text">
+              <strong class="review__title">Good Quality</strong>
+              <p class="review__description">I highly recommend shopping from kicks</p>
+            </div>
+            <div class="review__profile">
+              <img src="https://picsum.photos/40/40?random=30" alt="Reviewer profile" width="40" height="40" loading="lazy" class="review__avatar"/>
+            </div>
+          </div>
+          <div class="review__rating">
+            <span class="stars">★★★★★</span>
+            <span>5.0</span>
+          </div>
+        </div>
+        <div class="review__image">
+          <img src="https://picsum.photos/400/280?random=31" alt="Nike Air Jordan 1 review" width="400" height="280" loading="lazy" class="review__img"/>
+        </div>
+      </article>
+
+      <!-- Review 2: Young man with grey hoodie, colorful sneakers -->
+      <article class="review">
+        <div class="review__content">
+          <div class="review__header">
+            <div class="review__text">
+              <strong class="review__title">Good Quality</strong>
+              <p class="review__description">I highly recommend shopping from kicks</p>
+            </div>
+            <div class="review__profile">
+              <img src="https://picsum.photos/40/40?random=32" alt="Reviewer profile" width="40" height="40" loading="lazy" class="review__avatar"/>
+            </div>
+          </div>
+          <div class="review__rating">
+            <span class="stars">★★★★★</span>
+            <span>5.0</span>
+          </div>
+        </div>
+        <div class="review__image">
+          <img src="https://picsum.photos/400/280?random=33" alt="Colorful sneakers review" width="400" height="280" loading="lazy" class="review__img"/>
+        </div>
+      </article>
+
+      <!-- Review 3: Older man with glasses, black Adidas -->
+      <article class="review">
+        <div class="review__content">
+          <div class="review__header">
+            <div class="review__text">
+              <strong class="review__title">Good Quality</strong>
+              <p class="review__description">I highly recommend shopping from kicks</p>
+            </div>
+            <div class="review__profile">
+              <img src="https://picsum.photos/40/40?random=34" alt="Reviewer profile" width="40" height="40" loading="lazy" class="review__avatar"/>
+            </div>
+          </div>
+          <div class="review__rating">
+            <span class="stars">★★★★★</span>
+            <span>5.0</span>
+          </div>
+        </div>
+        <div class="review__image">
+          <img src="https://picsum.photos/400/280?random=35" alt="Black Adidas sneakers review" width="400" height="280" loading="lazy" class="review__img"/>
+        </div>
+      </article>
     </div>
   </div>
 </section>
 
 {% schema %}
 {
-  "name": "Reviews grid",
-  "settings": [],
-  "presets": [{"name": "Reviews grid"}]
+  "name": "Reviews Grid",
+  "tag": "section",
+  "class": "section-reviews",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Call to Action"
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "Button Text",
+      "default": "SEE ALL",
+      "info": "Text displayed on the call-to-action button"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button Link",
+      "info": "URL the button should link to"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Reviews Grid",
+      "settings": {
+        "cta_label": "SEE ALL"
+      }
+    }
+  ]
 }
 {% endschema %}
 
