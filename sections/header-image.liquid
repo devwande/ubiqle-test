@@ -6,8 +6,60 @@
     <div class="desktop-header">
       <div class="nav-left desktop-links">
         <p>New Drops 🔥</p>
-        <p>Men</p>
-        <p>Women</p>
+        <div class="nav-item">
+          <p class="nav-link" data-nav="men">Men</p>
+          <div class="nav-dropdown">
+            <div class="dropdown-content">
+              <h4>Men's Collection</h4>
+              <div class="product-list">
+                <a class="product-item">
+                  <span class="name">Air Max 270</span>
+                  <span class="price">$150</span>
+                </a>
+                <a class="product-item">
+                  <span class="name">Jordan 1 Retro</span>
+                  <span class="price">$170</span>
+                </a>
+                <a class="product-item">
+                  <span class="name">Ultraboost 22</span>
+                  <span class="price">$180</span>
+                </a>
+                <a class="product-item">
+                  <span class="name">Vans Old Skool</span>
+                  <span class="price">$65</span>
+                </a>
+              </div>
+              <a class="view-all-link">View All Men's →</a>
+            </div>
+          </div>
+        </div>
+        <div class="nav-item">
+          <p class="nav-link" data-nav="women">Women</p>
+          <div class="nav-dropdown">
+            <div class="dropdown-content">
+              <h4>Women's Collection</h4>
+              <div class="product-list">
+                <a class="product-item">
+                  <span class="name">Air Force 1</span>
+                  <span class="price">$90</span>
+                </a>
+                <a class="product-item">
+                  <span class="name">Stan Smith</span>
+                  <span class="price">$80</span>
+                </a>
+                <a class="product-item">
+                  <span class="name">Nike Blazer</span>
+                  <span class="price">$100</span>
+                </a>
+                <a class="product-item">
+                  <span class="name">Platform Sneakers</span>
+                  <span class="price">$85</span>
+                </a>
+              </div>
+              <a class="view-all-link">View All Women's →</a>
+            </div>
+          </div>
+        </div>
       </div>
 
       <div class="brand desktop-brand">
@@ -52,9 +104,9 @@
     <!-- Mobile Menu (shown by hamburger) -->
     <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
       <nav class="mobile-menu__content" role="navigation">
-        <a href="" class="mobile-link">New Drops 🔥</a>
-        <a href="" class="mobile-link">Men</a>
-        <a href="" class="mobile-link">Women</a>
+        <a class="mobile-link">New Drops 🔥</a>
+        <a class="mobile-link">Men</a>
+        <a class="mobile-link">Women</a>
         <div class="mobile-icons">
           <img src="{{ 'User.svg' | asset_url }}" alt="User" width="24" height="24">
           <img src="{{ 'Profile.svg' | asset_url }}" alt="Profile" width="24" height="24">
@@ -116,15 +168,116 @@
         color: #111;
       }
       
-      .desktop-links p:not(:first-child):hover {
+      .desktop-links .nav-link:hover {
         color: #666;
       }
       
-      .desktop-links p:not(:first-child)::after {
+      .desktop-links .nav-link::after {
         content: '▼';
         font-size: 10px;
         margin-left: 6px;
         opacity: 0.6;
+        transition: transform 0.2s ease;
+      }
+      
+      /* Navigation Dropdown */
+      .nav-item {
+        position: relative;
+        display: inline-block;
+      }
+      
+      .nav-dropdown {
+        position: absolute;
+        top: calc(100% + 12px);
+        left: 50%;
+        transform: translateX(-50%) translateY(-4px);
+        opacity: 0;
+        visibility: hidden;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        padding: 0;
+        min-width: 240px;
+        transition: all 0.25s ease;
+        z-index: 200;
+        border: 1px solid #f0f0f0;
+      }
+      
+      .nav-item:hover .nav-dropdown {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(-50%) translateY(0);
+      }
+      
+      .nav-item:hover .nav-link::after {
+        transform: rotate(180deg);
+      }
+      
+      .dropdown-content {
+        padding: 20px;
+      }
+      
+      .dropdown-content h4 {
+        margin: 0 0 16px 0;
+        font-family: var(--font-heading);
+        font-weight: 700;
+        font-size: 16px;
+        color: #111;
+        text-align: center;
+      }
+      
+      .product-list {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        margin-bottom: 16px;
+      }
+      
+      .product-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 8px 12px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: #111;
+        transition: all 0.2s ease;
+      }
+      
+      .product-item:hover {
+        background: #f8f9fa;
+        transform: translateX(2px);
+      }
+      
+      .product-item .name {
+        font-family: var(--font-heading);
+        font-weight: 500;
+        font-size: 14px;
+        color: #111;
+      }
+      
+      .product-item .price {
+        font-size: 13px;
+        color: #5b73ff;
+        font-weight: 600;
+      }
+      
+      .view-all-link {
+        display: block;
+        text-align: center;
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: 13px;
+        color: #111;
+        text-decoration: none;
+        padding: 8px 0;
+        border-top: 1px solid #f0f0f0;
+        margin-top: 8px;
+        transition: color 0.2s ease;
+      }
+      
+      .view-all-link:hover {
+        color: #5b73ff;
       }
       
       /* Center brand */
