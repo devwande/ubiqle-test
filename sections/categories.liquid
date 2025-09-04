@@ -1,25 +1,77 @@
 <section class="categories">
+  <!-- Top Header Bar -->
+  <div class="categories__top-bar">
+    <div class="container">
+      <div class="top-bar__content">
+        <div class="top-bar__scroll">
+          <span class="top-bar__text">SOLD ONLY IN PREMIUM QUALITY</span>
+          <span class="top-bar__divider"></span>
+          <span class="top-bar__text">SUBSCRIBE TO OUR CARE PROGRAM</span>
+          <span class="top-bar__divider"></span>
+          <span class="top-bar__text">FREE RETURNS EVEN AFTER PAYMENT</span>
+          <span class="top-bar__divider"></span>
+          <span class="top-bar__text">SOLD ONLY IN PREMIUM QUALITY</span>
+          <span class="top-bar__divider"></span>
+          <span class="top-bar__text">SUBSCRIBE TO OUR CARE PROGRAM</span>
+          <span class="top-bar__divider"></span>
+          <span class="top-bar__text">FREE RETURNS EVEN AFTER PAYMENT</span>
+          <span class="top-bar__divider"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Categories Section -->
   <div class="container">
     <div class="categories__header">
       <h2 class="section-title">CATEGORIES</h2>
       <div class="categories__pager">
-        <button aria-label="Prev" class="pager">‹</button>
+        <button aria-label="Previous" class="pager">‹</button>
         <button aria-label="Next" class="pager">›</button>
       </div>
     </div>
-    <div class="categories__grid">
-      <a class="category" href="#">
-        <div class="category__sizes">
+    
+    <div class="categories__main">
+      <!-- Size Filter -->
+      <div class="size-filter">
+        <span class="size-label">SIZE</span>
+        <div class="size-buttons">
           {% assign sizes = '38,39,40,41,42,43,44,45,46,47' | split: ',' %}
-          {% for s in sizes %}<span>{{ s }}</span>{% endfor %}
+          {% for s in sizes %}
+            <button class="size-btn {% if s == '38' %}size-btn--selected{% elsif s == '39' or s == '40' %}size-btn--secondary{% else %}size-btn--default{% endif %}">
+              {{ s }}
+            </button>
+          {% endfor %}
         </div>
-        <img src="https://picsum.photos/800/460?random=10" alt="Lifestyle"/>
-        <div class="category__label"><strong>Lifestyle</strong> shoes</div>
-      </a>
-      <a class="category" href="#">
-        <img src="https://picsum.photos/800/460?random=11" alt="Basketball"/>
-        <div class="category__label"><strong>Basketball</strong> shoes</div>
-      </a>
+        <a href="#" class="size-chart">SIZE CHART</a>
+      </div>
+
+      <!-- Category Cards -->
+      <div class="categories__grid">
+        <a class="category" href="#">
+          <div class="category__image">
+            <img src="https://picsum.photos/800/460?random=10" alt="Lifestyle Shoes" width="800" height="460" loading="lazy"/>
+          </div>
+          <div class="category__content">
+            <h3 class="category__title">LIFESTYLE SHOES</h3>
+            <div class="category__cta">
+              <span class="cta-arrow">↗</span>
+            </div>
+          </div>
+        </a>
+        
+        <a class="category" href="#">
+          <div class="category__image">
+            <img src="https://picsum.photos/800/460?random=11" alt="Basketball Shoes" width="800" height="460" loading="lazy"/>
+          </div>
+          <div class="category__content">
+            <h3 class="category__title">BASKETBALL SHOES</h3>
+            <div class="category__cta">
+              <span class="cta-arrow">↗</span>
+            </div>
+          </div>
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -27,6 +79,8 @@
 {% schema %}
 {
   "name": "Categories",
+  "tag": "section",
+  "class": "section-categories",
   "settings": [],
   "presets": [{"name": "Categories"}]
 }
