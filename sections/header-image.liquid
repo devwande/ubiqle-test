@@ -259,7 +259,7 @@
       .desktop-brand { display: none !important; }
 
       /* Show the mobile header row */
-      .mobile-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 16px; }
+      .mobile-header {background: #fff;border-radius: 16px;box-shadow: 0 2px 12px rgba(0,0,0,0.08);margin: 12px 8px 0 8px;padding: 10px 16px;position: relative;z-index: 1;}
       .mobile-brand { flex: 1; display: flex; justify-content: center; }
       .mobile-search-btn, .mobile-hamburger { appearance: none; background: transparent; border: 0; padding: 6px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; }
 
@@ -268,7 +268,7 @@
       .search-bar--mobile-header .search-input { width: 100%; border: 0; background: transparent; outline: none; font-size: 14px; padding: 10px 0; }
 
       /* When mobile search is open */
-      .top-header.is-search-open-mobile .search-bar--mobile-header { max-height: 64px; opacity: 1; pointer-events: auto; padding: 8px 12px; }
+      .top-header.is-search-open-mobile .search-bar--mobile-header { max-height: 64px;opacity: 1; pointer-events: auto; padding: 8px 12px; }
 
       /* Mobile menu */
       .mobile-menu { display: block; position: relative; }
