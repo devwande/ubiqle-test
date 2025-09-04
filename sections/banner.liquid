@@ -67,6 +67,7 @@
   </div>
 
 <script>
+// filepath: /Users/user/Developer/Ubiqle/sections/banner.liquid
 document.addEventListener("DOMContentLoaded", function () {
   const track = document.createElement("div");
   track.classList.add("hero__track");
@@ -74,11 +75,25 @@ document.addEventListener("DOMContentLoaded", function () {
   const heroImage = document.querySelector(".hero__image img");
   const heroImageContainer = document.querySelector(".hero__image");
 
-  // Only use the main hero image for the carousel
-  const slide = document.createElement("div");
-  slide.classList.add("hero__slide");
-  slide.appendChild(heroImage.cloneNode(true));
-  track.appendChild(slide);
+  // Create main product image slide
+  const mainSlide = document.createElement("div");
+  mainSlide.classList.add("hero__slide");
+  mainSlide.appendChild(heroImage.cloneNode(true));
+  track.appendChild(mainSlide);
+
+  // Create 2 random Picsum slides
+  for (let i = 0; i < 2; i++) {
+    const slide = document.createElement("div");
+    slide.classList.add("hero__slide");
+    const img = document.createElement("img");
+    img.src = `https://picsum.photos/1600/700?random=${Math.floor(Math.random()*1000)}`;
+    img.alt = `Random product image ${i+1}`;
+    img.width = 1600;
+    img.height = 700;
+    img.className = "hero__img";
+    slide.appendChild(img);
+    track.appendChild(slide);
+  }
 
   // Replace hero__image contents with track
   heroImageContainer.innerHTML = "";
