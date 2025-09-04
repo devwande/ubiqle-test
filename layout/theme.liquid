@@ -16,6 +16,10 @@
     
     <link rel="canonical" href="{{ canonical_url }}">
     
+    <!-- Preload Rubik font for better performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     {{ content_for_header }}
     
     <link rel="stylesheet" href="{{ 'theme.css' | asset_url }}" type="text/css" media="all">
