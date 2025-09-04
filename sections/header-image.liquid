@@ -3,26 +3,55 @@
     <div class="top-header__box">
       {% if section.settings.header_image != blank %}
         <div class="top-header__nav">
-          <div>
+          <div class="nav-left desktop-links">
             <p>New Drops 🔥</p>
             <p>Men</p>
             <p>Women</p>
           </div>
 
-          <div>
-            <img src="{{ 'Logo.svg' | asset_url }}" alt="" width="" height="">
+          <div class="brand">
+            <img src="{{ 'Logo.svg' | asset_url }}" alt="KICKS" width="" height="">
           </div>
 
-          <div>
-            <img src="{{ 'Search.svg' | asset_url }}" alt="" width="" height="">
+          <div class="top-header__search desktop-actions">
+            <button id="searchToggle" class="search-toggle" aria-expanded="false" aria-controls="headerSearch" aria-label="Open search">
+              <img src="{{ 'Search.svg' | asset_url }}" alt="Search" />
+            </button>
+            <form id="headerSearch" class="search-bar" action="/search" method="get" role="search" aria-hidden="true">
+              <input type="search" name="q" placeholder="Search products" class="search-input" />
+            </form>
             <img src="{{ 'Profile.svg' | asset_url }}" alt="" width="" height="">
             <img src="{{ 'User.svg' | asset_url }}" alt="" width="" height="">
+            <button id="menuToggle" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+          
+          <!-- Mobile Menu -->
+          <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+            <nav class="mobile-menu__content" role="navigation">
+              <a href="#" class="mobile-link">New Drops 🔥</a>
+              <a href="#" class="mobile-link">Men</a>
+              <a href="#" class="mobile-link">Women</a>
+              <div class="mobile-icons">
+                <div class="top-header__search mobile-search">
+                  <button id="searchToggleMobile" class="search-toggle" aria-expanded="false" aria-controls="headerSearchMobile" aria-label="Open search">
+                    <img src="{{ 'Search.svg' | asset_url }}" alt="Search" />
+                  </button>
+                  <form id="headerSearchMobile" class="search-bar search-bar--mobile" action="/search" method="get" role="search" aria-hidden="true">
+                    <input type="search" name="q" placeholder="Search products" class="search-input" />
+                  </form>
+                  <img src="{{ 'User.svg' | asset_url }}" alt="" width="" height="">
+                  <img src="{{ 'Profile.svg' | asset_url }}" alt="" width="" height="">
+                </div>
+              </div>
+            </nav>
           </div>
         </div>
       {% else %}
         <div class="top-header__nav">
           <div class="header-container header-nav__container">
-            <div class="header-nav">
+            <div class="header-nav desktop-links">
               <p>New Drops 🔥</p>
               <div class="nav-items">
                 <p>Men</p>
@@ -35,20 +64,104 @@
               </div>
             </div>
 
-            <div>
-              <img src="{{ 'Logo.svg' | asset_url }}" alt="Logo placeholder" width={28px} height={28px}>
+            <div class="brand">
+              <img src="{{ 'Logo.svg' | asset_url }}" alt="KICKS" width={28px} height={28px}>
             </div>
 
-            <div class="header-nav">
-              <img src="{{ 'Search.svg' | asset_url }}" alt="Search Icon" width="" height="">
+            <div class="header-nav top-header__search desktop-actions">
+              <button id="searchToggle" class="search-toggle" aria-expanded="false" aria-controls="headerSearch" aria-label="Open search">
+                <img src="{{ 'Search.svg' | asset_url }}" alt="Search" />
+              </button>
+              <form id="headerSearch" class="search-bar" action="/search" method="get" role="search" aria-hidden="true">
+                <input type="search" name="q" placeholder="Search products" class="search-input" />
+              </form>
               <img src="{{ 'User.svg' | asset_url }}" alt="" width="User Icon" height="">
               <img src="{{ 'Profile.svg' | asset_url }}" alt="Profile Icon" width="" height="">
+              <button id="menuToggle" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+                <span></span><span></span><span></span>
+              </button>
+            </div>
+
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+              <nav class="mobile-menu__content" role="navigation">
+                <a href="#" class="mobile-link">New Drops 🔥</a>
+                <a href="#" class="mobile-link">Men</a>
+                <a href="#" class="mobile-link">Women</a>
+                <div class="mobile-icons">
+                  <div class="top-header__search mobile-search">
+                    <button id="searchToggleMobile" class="search-toggle" aria-expanded="false" aria-controls="headerSearchMobile" aria-label="Open search">
+                      <img src="{{ 'Search.svg' | asset_url }}" alt="Search" />
+                    </button>
+                    <form id="headerSearchMobile" class="search-bar search-bar--mobile" action="/search" method="get" role="search" aria-hidden="true">
+                      <input type="search" name="q" placeholder="Search products" class="search-input" />
+                    </form>
+                    <img src="{{ 'User.svg' | asset_url }}" alt="" width="User Icon" height="">
+                    <img src="{{ 'Profile.svg' | asset_url }}" alt="Profile Icon" width="" height="">
+                  </div>
+                </div>
+              </nav>
             </div>
           </div>
         </div>
       {% endif %}
     </div>
   </div>
+
+  <script>
+    (function(){
+      var nav = document.querySelector('.top-header__nav');
+      var toggle = document.getElementById('searchToggle');
+      var form = document.getElementById('headerSearch');
+      var input = form ? form.querySelector('.search-input') : null;
+      var menuToggle = document.getElementById('menuToggle');
+      var mobileMenu = document.getElementById('mobileMenu');
+      var searchToggleMobile = document.getElementById('searchToggleMobile');
+      var formMobile = document.getElementById('headerSearchMobile');
+      var inputMobile = formMobile ? formMobile.querySelector('.search-input') : null;
+      if(!nav){ return; }
+      function closeMenu(){
+        if(menuToggle && mobileMenu){
+          nav.classList.remove('is-menu-open');
+          mobileMenu.setAttribute('aria-hidden','true');
+          menuToggle.setAttribute('aria-expanded','false');
+        }
+      }
+      function closeSearch(){
+        nav.classList.remove('is-search-open');
+        toggle && toggle.setAttribute('aria-expanded','false');
+        if(form){ form.setAttribute('aria-hidden','true'); }
+        if(searchToggleMobile){ searchToggleMobile.setAttribute('aria-expanded','false'); }
+        if(formMobile){ formMobile.setAttribute('aria-hidden','true'); }
+      }
+      toggle && toggle.addEventListener('click', function(e){
+        e.preventDefault();
+        var open = nav.classList.toggle('is-search-open');
+        toggle.setAttribute('aria-expanded', String(open));
+        if(form){ form.setAttribute('aria-hidden', String(!open)); }
+        if(open && input){ setTimeout(function(){ input.focus(); }, 50); }
+      });
+      searchToggleMobile && searchToggleMobile.addEventListener('click', function(e){
+        e.preventDefault();
+        var open = nav.classList.toggle('is-search-open');
+        searchToggleMobile.setAttribute('aria-expanded', String(open));
+        if(formMobile){ formMobile.setAttribute('aria-hidden', String(!open)); }
+        if(open && inputMobile){ setTimeout(function(){ inputMobile.focus(); }, 50); }
+      });
+      menuToggle && menuToggle.addEventListener('click', function(e){
+        e.preventDefault();
+        var open = nav.classList.toggle('is-menu-open');
+        menuToggle.setAttribute('aria-expanded', String(open));
+        if(mobileMenu){ mobileMenu.setAttribute('aria-hidden', String(!open)); }
+      });
+      document.addEventListener('keydown', function(ev){ if(ev.key === 'Escape'){ closeSearch(); closeMenu(); }});
+      document.addEventListener('click', function(ev){
+        if(!nav.classList.contains('is-search-open') && !nav.classList.contains('is-menu-open')) return;
+        if(!nav.contains(ev.target)) { closeSearch(); closeMenu(); }
+      });
+      window.addEventListener('resize', function(){ if(window.innerWidth > 900){ closeMenu(); closeSearch(); }});
+    })();
+  </script>
 </section>
 
 {% schema %}
