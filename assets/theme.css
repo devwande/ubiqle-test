@@ -273,7 +273,11 @@ h1, h2, h3, h4, h5, h6,
 .newsletter__title,
 .footer__title,
 .category__title,
-.mobile-link {
+.mobile-link,
+.hero__dense,
+.hero__pxi,
+.size-label,
+.top-bar__text {
   font-family: var(--font-heading);
   font-weight: 700;
   line-height: 1.2;
@@ -281,7 +285,7 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Specific heading weights */
-h1, .hero__title, .section-title {
+h1, .hero__title, .section-title, .hero__dense, .hero__pxi {
   font-weight: 800;
 }
 
@@ -293,8 +297,20 @@ h3, .card__title, .category__title {
   font-weight: 600;
 }
 
-h4, h5, h6 {
+h4, h5, h6, .mobile-link {
   font-weight: 600;
+}
+
+/* Special heading treatments */
+.hero__dense, .hero__pxi {
+  font-family: var(--font-heading);
+  font-weight: 800;
+}
+
+.size-label, .top-bar__text {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 html, body {
@@ -962,8 +978,8 @@ html, body {
 .footer__columns {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  margin-bottom: 80px;
+  gap: 70px;
+  margin-bottom: 120px;
 }
 
 .footer__column {
@@ -1125,7 +1141,7 @@ html, body {
   
   .footer-block {
     padding: 48px 0 80px;
-    border-radius: 20px 20px 0 0;
+    border-radius: 20px;
     margin-top: -20px;
   }
   
