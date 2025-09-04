@@ -1818,19 +1818,6 @@ html, body {
   margin-top: 1rem;
 }
 
-.hero__dot {
-  width: 10px;
-  height: 10px;
-  background-color: #ccc;
-  border-radius: 50%;
-  display: inline-block;
-  cursor: pointer;
-}
-
-.hero__dot.active {
-  background-color: #000;
-}
-
 /* Optional: Desktop arrow navigation */
 .hero__arrow {
   position: absolute;
