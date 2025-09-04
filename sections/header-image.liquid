@@ -321,12 +321,10 @@ document.addEventListener('DOMContentLoaded', function() {
   if (searchToggle && searchForm) {
     searchToggle.addEventListener('click', function(e) {
       e.preventDefault();
-      closeAll();
-      nav.classList.toggle('is-search-open');
-      const open = nav.classList.contains('is-search-open');
-      searchToggle.setAttribute('aria-expanded', open);
-      searchForm.setAttribute('aria-hidden', !open);
-      if (open && searchInput) setTimeout(() => searchInput.focus(), 50);
+      const isOpen = nav.classList.toggle('is-search-open');
+      searchToggle.setAttribute('aria-expanded', isOpen);
+      searchForm.setAttribute('aria-hidden', !isOpen);
+      if (isOpen && searchInput) setTimeout(() => searchInput.focus(), 50);
     });
   }
 
@@ -334,12 +332,10 @@ document.addEventListener('DOMContentLoaded', function() {
   if (searchToggleMobile && searchFormMobile) {
     searchToggleMobile.addEventListener('click', function(e) {
       e.preventDefault();
-      closeAll();
-      root.classList.toggle('is-search-open-mobile');
-      const open = root.classList.contains('is-search-open-mobile');
-      searchToggleMobile.setAttribute('aria-expanded', open);
-      searchFormMobile.setAttribute('aria-hidden', !open);
-      if (open && searchInputMobile) setTimeout(() => searchInputMobile.focus(), 50);
+      const isOpen = root.classList.toggle('is-search-open-mobile');
+      searchToggleMobile.setAttribute('aria-expanded', isOpen);
+      searchFormMobile.setAttribute('aria-hidden', !isOpen);
+      if (isOpen && searchInputMobile) setTimeout(() => searchInputMobile.focus(), 50);
     });
   }
 
@@ -347,11 +343,9 @@ document.addEventListener('DOMContentLoaded', function() {
   if (menuToggleMobile && mobileMenu) {
     menuToggleMobile.addEventListener('click', function(e) {
       e.preventDefault();
-      closeAll();
-      root.classList.toggle('is-menu-open-mobile');
-      const open = root.classList.contains('is-menu-open-mobile');
-      menuToggleMobile.setAttribute('aria-expanded', open);
-      mobileMenu.setAttribute('aria-hidden', !open);
+      const isOpen = root.classList.toggle('is-menu-open-mobile');
+      menuToggleMobile.setAttribute('aria-expanded', isOpen);
+      mobileMenu.setAttribute('aria-hidden', !isOpen);
     });
   }
 
