@@ -15,19 +15,51 @@
 
           <div class="top-header__search desktop-actions">
             <button id="searchToggle" class="search-toggle" aria-expanded="false" aria-controls="headerSearch" aria-label="Open search">
-              <img src="{{ 'Search.svg' | asset_url }}" alt="Search" />
+              <img src="{{ 'Search.svg' | asset_url }}" alt="Search" width="20" height="20"/>
             </button>
             <form id="headerSearch" class="search-bar" action="/search" method="get" role="search" aria-hidden="true">
               <input type="search" name="q" placeholder="Search products" class="search-input" />
             </form>
-            <img src="{{ 'Profile.svg' | asset_url }}" alt="" width="" height="">
-            <img src="{{ 'User.svg' | asset_url }}" alt="" width="" height="">
+            <img src="{{ 'Profile.svg' | asset_url }}" alt="Profile" width="20" height="20">
+            <img src="{{ 'User.svg' | asset_url }}" alt="User" width="20" height="20">
             <button id="menuToggle" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
               <span></span><span></span><span></span>
             </button>
           </div>
           
+          <!-- Mobile Header Layout: Search | Logo | Hamburger -->
+          <div class="mobile-header">
+            <button id="searchToggleMobileHeader" class="search-toggle mobile-search-btn" aria-expanded="false" aria-controls="headerSearchMobileHeader" aria-label="Open search">
+              <img src="{{ 'Search.svg' | asset_url }}" alt="Search" width="20" height="20"/>
+            </button>
+            
+            <div class="brand mobile-brand">
+              <img src="{{ 'Logo.svg' | asset_url }}" alt="KICKS" width="28" height="28">
+            </div>
+            
+            <button id="menuToggleMobile" class="hamburger mobile-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenuMobile">
+              <span></span><span></span><span></span>
+            </button>
+          </div>
+          <!-- Mobile Search Bar -->
+          <form id="headerSearchMobileHeader" class="search-bar search-bar--mobile-header" action="/search" method="get" role="search" aria-hidden="true">
+            <input type="search" name="q" placeholder="Search products" class="search-input" />
+          </form>
+          
           <!-- Mobile Menu -->
+          <div id="mobileMenuMobile" class="mobile-menu mobile-menu--new" aria-hidden="true">
+            <nav class="mobile-menu__content" role="navigation">
+              <a href="#" class="mobile-link">New Drops 🔥</a>
+              <a href="#" class="mobile-link">Men</a>
+              <a href="#" class="mobile-link">Women</a>
+              <div class="mobile-icons">
+                <img src="{{ 'User.svg' | asset_url }}" alt="User" width="24" height="24">
+                <img src="{{ 'Profile.svg' | asset_url }}" alt="Profile" width="24" height="24">
+              </div>
+            </nav>
+          </div>
+          
+          <!-- Legacy Mobile Menu (kept for fallback) -->
           <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
             <nav class="mobile-menu__content" role="navigation">
               <a href="#" class="mobile-link">New Drops 🔥</a>
@@ -36,7 +68,7 @@
               <div class="mobile-icons">
                 <div class="top-header__search mobile-search">
                   <button id="searchToggleMobile" class="search-toggle" aria-expanded="false" aria-controls="headerSearchMobile" aria-label="Open search">
-                    <img src="{{ 'Search.svg' | asset_url }}" alt="Search" />
+                    <img src="{{ 'Search.svg' | asset_url }}" alt="Search" width="" height="" />
                   </button>
                   <form id="headerSearchMobile" class="search-bar search-bar--mobile" action="/search" method="get" role="search" aria-hidden="true">
                     <input type="search" name="q" placeholder="Search products" class="search-input" />
@@ -70,7 +102,7 @@
 
             <div class="header-nav top-header__search desktop-actions">
               <button id="searchToggle" class="search-toggle" aria-expanded="false" aria-controls="headerSearch" aria-label="Open search">
-                <img src="{{ 'Search.svg' | asset_url }}" alt="Search" />
+                <img src="{{ 'Search.svg' | asset_url }}" alt="Search" width="" height=""/>
               </button>
               <form id="headerSearch" class="search-bar" action="/search" method="get" role="search" aria-hidden="true">
                 <input type="search" name="q" placeholder="Search products" class="search-input" />
@@ -91,13 +123,13 @@
                 <div class="mobile-icons">
                   <div class="top-header__search mobile-search">
                     <button id="searchToggleMobile" class="search-toggle" aria-expanded="false" aria-controls="headerSearchMobile" aria-label="Open search">
-                      <img src="{{ 'Search.svg' | asset_url }}" alt="Search" />
+                      <img src="{{ 'Search.svg' | asset_url }}" alt="Search" width="" height=""/>
                     </button>
                     <form id="headerSearchMobile" class="search-bar search-bar--mobile" action="/search" method="get" role="search" aria-hidden="true">
                       <input type="search" name="q" placeholder="Search products" class="search-input" />
                     </form>
-                    <img src="{{ 'User.svg' | asset_url }}" alt="" width="User Icon" height="">
-                    <img src="{{ 'Profile.svg' | asset_url }}" alt="Profile Icon" width="" height="">
+                    <img src="{{ 'User.svg' | asset_url }}" alt="User" width="20" height="20">
+                    <img src="{{ 'Profile.svg' | asset_url }}" alt="Profile" width="20" height="20">
                   </div>
                 </div>
               </nav>

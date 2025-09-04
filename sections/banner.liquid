@@ -26,7 +26,7 @@
           />
         {% else %}
           <img 
-            src="https://picsum.photos/1600/700?random=1" 
+            src="{{ 'NikeAir.svg' | asset_url }}"
             alt="Hero image placeholder" 
             width="1600" 
             height="700" 
@@ -53,12 +53,8 @@
       
       <!-- Thumbnail images on the right -->
       <div class="hero__thumbnails">
-        <div class="hero__thumb">
-          <img src="https://picsum.photos/200/150?random=2" alt="Product thumbnail 1" loading="lazy" />
-        </div>
-        <div class="hero__thumb">
-          <img src="https://picsum.photos/200/150?random=3" alt="Product thumbnail 2" loading="lazy" />
-        </div>
+          <img src="{{ 'Placeholder1.svg' | asset_url }}" alt="Product thumbnail 1" loading="lazy" width="" height="" />
+          <img src="{{ 'Placeholder2.svg' | asset_url }}" alt="Product thumbnail 2" loading="lazy" width="" height=""/>
       </div>
       
       <!-- Slider indicators -->
