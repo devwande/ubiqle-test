@@ -81,19 +81,24 @@ document.addEventListener("DOMContentLoaded", function () {
   mainSlide.appendChild(heroImage.cloneNode(true));
   track.appendChild(mainSlide);
 
-  // Create 2 random Picsum slides
-  for (let i = 0; i < 2; i++) {
+  // Create slides with Nike2.jpeg and Nike3.jpeg
+  const nikeImages = [
+    '{{ "Nike2.jpeg" | asset_url }}',
+    '{{ "Nike3.jpeg" | asset_url }}'
+  ];
+  
+  nikeImages.forEach((imageUrl, i) => {
     const slide = document.createElement("div");
     slide.classList.add("hero__slide");
     const img = document.createElement("img");
-    img.src = `https://picsum.photos/1600/700?random=${Math.floor(Math.random()*1000)}`;
-    img.alt = `Random product image ${i+1}`;
+    img.src = imageUrl;
+    img.alt = `Nike product image ${i+1}`;
     img.width = 1600;
     img.height = 700;
     img.className = "hero__img";
     slide.appendChild(img);
     track.appendChild(slide);
-  }
+  });
 
   // Replace hero__image contents with track
   heroImageContainer.innerHTML = "";
