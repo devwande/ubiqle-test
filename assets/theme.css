@@ -1591,7 +1591,7 @@ html, body {
 
 .category__cta {
   position: absolute;
-  bottom: 24px;
+  bottom: 16px;
   right: 24px;
   width: 48px;
   height: 48px;
@@ -1604,8 +1604,11 @@ html, body {
 }
 
 .category:hover .category__cta {
-  background: #444;
   transform: scale(1.1);
+}
+
+.category__cta:hover {
+      background: #4A69E2;
 }
 
 .cta-arrow {
@@ -1674,7 +1677,7 @@ html, body {
   }
   
   .category__cta {
-    bottom: 20px;
+    bottom: 14px;
     right: 20px;
     width: 44px;
     height: 44px;
@@ -1728,6 +1731,7 @@ html, body {
   }
   
   .category__cta {
+    top: 5px;
     bottom: 16px;
     right: 16px;
     width: 40px;
