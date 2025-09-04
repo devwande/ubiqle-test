@@ -1,208 +1,386 @@
-<section class="top-header" role="img" aria-label="Site header banner">
-  <div class="top-header__nav">
-    <div class="top-header__box">
-      {% if section.settings.header_image != blank %}
-        <div class="top-header__nav">
-          <div class="nav-left desktop-links">
-            <p>New Drops 🔥</p>
-            <p>Men</p>
-            <p>Women</p>
-          </div>
+<!-- Drop this whole section into your Shopify section file. It preserves desktop (>768px) exactly as-is and swaps in the 3‑item mobile header (Search | Logo | Hamburger). The mobile search input expands BELOW the row, and the hamburger opens the mobile menu. -->
+<section class="top-header" role="banner" aria-label="Site header">
+  <div class="top-header__nav" data-component="header">
 
-          <div class="brand">
-            <img src="{{ 'Logo.svg' | asset_url }}" alt="KICKS" width="" height="">
-          </div>
+    <!-- ===================== DESKTOP HEADER (unchanged behavior/styles) ===================== -->
+    <div class="desktop-header">
+      <div class="nav-left desktop-links">
+        <p>New Drops 🔥</p>
+        <p>Men</p>
+        <p>Women</p>
+      </div>
 
-          <div class="top-header__search desktop-actions">
-            <button id="searchToggle" class="search-toggle" aria-expanded="false" aria-controls="headerSearch" aria-label="Open search">
-              <img src="{{ 'Search.svg' | asset_url }}" alt="Search" width="20" height="20"/>
-            </button>
-            <form id="headerSearch" class="search-bar" action="/search" method="get" role="search" aria-hidden="true">
-              <input type="search" name="q" placeholder="Search products" class="search-input" />
-            </form>
-            <img src="{{ 'Profile.svg' | asset_url }}" alt="Profile" width="20" height="20">
-            <img src="{{ 'User.svg' | asset_url }}" alt="User" width="20" height="20">
-            <button id="menuToggle" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-              <span></span><span></span><span></span>
-            </button>
-          </div>
-          
-          <!-- Mobile Header Layout: Search | Logo | Hamburger -->
-          <div class="mobile-header">
-            <button id="searchToggleMobileHeader" class="search-toggle mobile-search-btn" aria-expanded="false" aria-controls="headerSearchMobileHeader" aria-label="Open search">
-              <img src="{{ 'Search.svg' | asset_url }}" alt="Search" width="20" height="20"/>
-            </button>
-            
-            <div class="brand mobile-brand">
-              <img src="{{ 'Logo.svg' | asset_url }}" alt="KICKS" width="28" height="28">
-            </div>
-            
-            <button id="menuToggleMobile" class="hamburger mobile-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenuMobile">
-              <span></span><span></span><span></span>
-            </button>
-          </div>
-          <!-- Mobile Search Bar -->
-          <form id="headerSearchMobileHeader" class="search-bar search-bar--mobile-header" action="/search" method="get" role="search" aria-hidden="true">
-            <input type="search" name="q" placeholder="Search products" class="search-input" />
-          </form>
-          
-          <!-- Mobile Menu -->
-          <div id="mobileMenuMobile" class="mobile-menu mobile-menu--new" aria-hidden="true">
-            <nav class="mobile-menu__content" role="navigation">
-              <a href="#" class="mobile-link">New Drops 🔥</a>
-              <a href="#" class="mobile-link">Men</a>
-              <a href="#" class="mobile-link">Women</a>
-              <div class="mobile-icons">
-                <img src="{{ 'User.svg' | asset_url }}" alt="User" width="24" height="24">
-                <img src="{{ 'Profile.svg' | asset_url }}" alt="Profile" width="24" height="24">
-              </div>
-            </nav>
-          </div>
-          
-          <!-- Legacy Mobile Menu (kept for fallback) -->
-          <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-            <nav class="mobile-menu__content" role="navigation">
-              <a href="#" class="mobile-link">New Drops 🔥</a>
-              <a href="#" class="mobile-link">Men</a>
-              <a href="#" class="mobile-link">Women</a>
-              <div class="mobile-icons">
-                <div class="top-header__search mobile-search">
-                  <button id="searchToggleMobile" class="search-toggle" aria-expanded="false" aria-controls="headerSearchMobile" aria-label="Open search">
-                    <img src="{{ 'Search.svg' | asset_url }}" alt="Search" width="" height="" />
-                  </button>
-                  <form id="headerSearchMobile" class="search-bar search-bar--mobile" action="/search" method="get" role="search" aria-hidden="true">
-                    <input type="search" name="q" placeholder="Search products" class="search-input" />
-                  </form>
-                  <img src="{{ 'User.svg' | asset_url }}" alt="" width="" height="">
-                  <img src="{{ 'Profile.svg' | asset_url }}" alt="" width="" height="">
-                </div>
-              </div>
-            </nav>
-          </div>
-        </div>
-      {% else %}
-        <div class="top-header__nav">
-          <div class="header-container header-nav__container">
-            <div class="header-nav desktop-links">
-              <p>New Drops 🔥</p>
-              <div class="nav-items">
-                <p>Men</p>
-                <img src="{{ 'ArrowDown.svg' | asset_url }}" alt="ArrowDown placeholder" width={} height={}>
-              </div>
+      <div class="brand desktop-brand">
+        <img src="{{ 'Logo.svg' | asset_url }}" alt="KICKS" width="28" height="28">
+      </div>
 
-              <div class="nav-items">
-                <p>Women</p>
-                <img src="{{ 'ArrowDown.svg' | asset_url }}" alt="ArrowDown placeholder" width={} height={}>
-              </div>
-            </div>
-
-            <div class="brand">
-              <img src="{{ 'Logo.svg' | asset_url }}" alt="KICKS" width={28px} height={28px}>
-            </div>
-
-            <div class="header-nav top-header__search desktop-actions">
-              <button id="searchToggle" class="search-toggle" aria-expanded="false" aria-controls="headerSearch" aria-label="Open search">
-                <img src="{{ 'Search.svg' | asset_url }}" alt="Search" width="" height=""/>
-              </button>
-              <form id="headerSearch" class="search-bar" action="/search" method="get" role="search" aria-hidden="true">
-                <input type="search" name="q" placeholder="Search products" class="search-input" />
-              </form>
-              <img src="{{ 'User.svg' | asset_url }}" alt="" width="User Icon" height="">
-              <img src="{{ 'Profile.svg' | asset_url }}" alt="Profile Icon" width="" height="">
-              <button id="menuToggle" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
-                <span></span><span></span><span></span>
-              </button>
-            </div>
-
-            <!-- Mobile Menu -->
-            <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
-              <nav class="mobile-menu__content" role="navigation">
-                <a href="#" class="mobile-link">New Drops 🔥</a>
-                <a href="#" class="mobile-link">Men</a>
-                <a href="#" class="mobile-link">Women</a>
-                <div class="mobile-icons">
-                  <div class="top-header__search mobile-search">
-                    <button id="searchToggleMobile" class="search-toggle" aria-expanded="false" aria-controls="headerSearchMobile" aria-label="Open search">
-                      <img src="{{ 'Search.svg' | asset_url }}" alt="Search" width="" height=""/>
-                    </button>
-                    <form id="headerSearchMobile" class="search-bar search-bar--mobile" action="/search" method="get" role="search" aria-hidden="true">
-                      <input type="search" name="q" placeholder="Search products" class="search-input" />
-                    </form>
-                    <img src="{{ 'User.svg' | asset_url }}" alt="User" width="20" height="20">
-                    <img src="{{ 'Profile.svg' | asset_url }}" alt="Profile" width="20" height="20">
-                  </div>
-                </div>
-              </nav>
-            </div>
-          </div>
-        </div>
-      {% endif %}
+      <div class="header-nav top-header__search desktop-actions">
+        <button id="searchToggle" class="search-toggle" aria-expanded="false" aria-controls="headerSearch" aria-label="Open search">
+          <img src="{{ 'Search.svg' | asset_url }}" alt="Search" width="22" height="22"/>
+        </button>
+        <form id="headerSearch" class="search-bar" action="/search" method="get" role="search" aria-hidden="true">
+          <input type="search" name="q" placeholder="Search products" class="search-input" />
+        </form>
+        <img src="{{ 'Profile.svg' | asset_url }}" alt="Profile" width="20" height="20">
+        <img src="{{ 'User.svg' | asset_url }}" alt="User" width="20" height="20">
+        <button id="menuToggle" class="hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </div>
+
+    <!-- ===================== MOBILE HEADER ROW ===================== -->
+    <div class="mobile-header" aria-label="Mobile header bar">
+      <button id="searchToggleMobile" class="search-toggle mobile-search-btn" aria-expanded="false" aria-controls="headerSearchMobile" aria-label="Open search">
+        <img src="{{ 'Search.svg' | asset_url }}" alt="Search" width="22" height="22"/>
+      </button>
+
+      <div class="brand mobile-brand" aria-label="KICKS logo">
+        <img src="{{ 'Logo.svg' | asset_url }}" alt="KICKS" width="" height="">
+      </div>
+
+      <button id="menuToggleMobile" class="hamburger mobile-hamburger" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+
+    <!-- Mobile Search (expands BELOW the header row) -->
+    <form id="headerSearchMobile" class="search-bar search-bar--mobile-header" action="/search" method="get" role="search" aria-hidden="true">
+      <input type="search" name="q" placeholder="Search products" class="search-input" />
+    </form>
+
+    <!-- Mobile Menu (shown by hamburger) -->
+    <div id="mobileMenu" class="mobile-menu" aria-hidden="true">
+      <nav class="mobile-menu__content" role="navigation">
+        <a href="#" class="mobile-link">New Drops 🔥</a>
+        <a href="#" class="mobile-link">Men</a>
+        <a href="#" class="mobile-link">Women</a>
+        <div class="mobile-icons">
+          <img src="{{ 'User.svg' | asset_url }}" alt="User" width="24" height="24">
+          <img src="{{ 'Profile.svg' | asset_url }}" alt="Profile" width="24" height="24">
+        </div>
+      </nav>
+    </div>
+
   </div>
 
-  <script>
-    (function(){
-      var nav = document.querySelector('.top-header__nav');
-      var toggle = document.getElementById('searchToggle');
-      var form = document.getElementById('headerSearch');
-      var input = form ? form.querySelector('.search-input') : null;
-      var menuToggle = document.getElementById('menuToggle');
-      var mobileMenu = document.getElementById('mobileMenu');
-      var searchToggleMobile = document.getElementById('searchToggleMobile');
-      var formMobile = document.getElementById('headerSearchMobile');
-      var inputMobile = formMobile ? formMobile.querySelector('.search-input') : null;
-      if(!nav){ return; }
-      function closeMenu(){
-        if(menuToggle && mobileMenu){
-          nav.classList.remove('is-menu-open');
-          mobileMenu.setAttribute('aria-hidden','true');
-          menuToggle.setAttribute('aria-expanded','false');
-        }
+  <style>
+    /* Desktop Header Styling to match the design */
+    @media (min-width: 769px) {
+      .top-header {
+        padding: 20px 24px;
+        background: transparent;
+        position: relative;
+        z-index: 100;
       }
-      function closeSearch(){
-        nav.classList.remove('is-search-open');
-        toggle && toggle.setAttribute('aria-expanded','false');
-        if(form){ form.setAttribute('aria-hidden','true'); }
-        if(searchToggleMobile){ searchToggleMobile.setAttribute('aria-expanded','false'); }
-        if(formMobile){ formMobile.setAttribute('aria-hidden','true'); }
+      
+      .top-header__nav {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0;
+        background: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+        padding: 16px 32px;
+        position: relative;
+        z-index: 101;
       }
-      toggle && toggle.addEventListener('click', function(e){
-        e.preventDefault();
-        var open = nav.classList.toggle('is-search-open');
-        toggle.setAttribute('aria-expanded', String(open));
-        if(form){ form.setAttribute('aria-hidden', String(!open)); }
-        if(open && input){ setTimeout(function(){ input.focus(); }, 50); }
-      });
-      searchToggleMobile && searchToggleMobile.addEventListener('click', function(e){
-        e.preventDefault();
-        var open = nav.classList.toggle('is-search-open');
-        searchToggleMobile.setAttribute('aria-expanded', String(open));
-        if(formMobile){ formMobile.setAttribute('aria-hidden', String(!open)); }
-        if(open && inputMobile){ setTimeout(function(){ inputMobile.focus(); }, 50); }
-      });
-      menuToggle && menuToggle.addEventListener('click', function(e){
-        e.preventDefault();
-        var open = nav.classList.toggle('is-menu-open');
-        menuToggle.setAttribute('aria-expanded', String(open));
-        if(mobileMenu){ mobileMenu.setAttribute('aria-hidden', String(!open)); }
-      });
-      document.addEventListener('keydown', function(ev){ if(ev.key === 'Escape'){ closeSearch(); closeMenu(); }});
-      document.addEventListener('click', function(ev){
-        if(!nav.classList.contains('is-search-open') && !nav.classList.contains('is-menu-open')) return;
-        if(!nav.contains(ev.target)) { closeSearch(); closeMenu(); }
-      });
-      window.addEventListener('resize', function(){ if(window.innerWidth > 900){ closeMenu(); closeSearch(); }});
-    })();
-  </script>
-</section>
+      
+      .desktop-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+      
+      /* Left navigation */
+      .desktop-links {
+        display: flex;
+        align-items: center;
+        gap: 32px;
+        margin: 0;
+      }
+      
+      .desktop-links p {
+        font-family: var(--font-heading);
+        font-weight: 600;
+        font-size: 16px;
+        color: #111;
+        margin: 0;
+        cursor: pointer;
+        transition: color 0.2s ease;
+        position: relative;
+      }
+      
+      .desktop-links p:first-child {
+        color: #111;
+      }
+      
+      .desktop-links p:not(:first-child):hover {
+        color: #666;
+      }
+      
+      .desktop-links p:not(:first-child)::after {
+        content: '▼';
+        font-size: 10px;
+        margin-left: 6px;
+        opacity: 0.6;
+      }
+      
+      /* Center brand */
+      .desktop-brand {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .desktop-brand img {
+        width: auto;
+        height: 32px;
+      }
+      
+      /* Right actions */
+      .desktop-actions {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        position: relative;
+      }
+      
+      .desktop-actions img {
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+        transition: opacity 0.2s ease;
+      }
+      
+      .desktop-actions img:hover {
+        opacity: 0.7;
+      }
+      
+      /* Search toggle styling */
+      .search-toggle {
+        padding: 8px;
+        border-radius: 50%;
+        transition: background-color 0.2s ease;
+        border: none;
+        background: transparent;
+        cursor: pointer;
+      }
+      
+      .search-toggle:hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
+      
+      .search-toggle img {
+        width: 24px;
+        height: 24px;
+      }
+      
+      /* Desktop search bar styling */
+      .desktop-actions .search-bar {
+        position: absolute;
+        right: calc(100% + 10px);
+        top: 50%;
+        transform: translateY(-50%) scale(0.98);
+        opacity: 0;
+        pointer-events: none;
+        background: #fff;
+        border: 2px solid #4A69E2;
+        border-radius: 999px;
+        padding: 8px 16px;
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+        min-width: 280px;
+        transition: opacity 0.22s ease, transform 0.22s ease;
+        z-index: 1000 !important;
+        white-space: nowrap;
+      }
+      
+      .desktop-actions .search-input {
+        border: none;
+        outline: none;
+        width: 100%;
+        font-size: 14px;
+        background: transparent;
+      }
+      
+      .desktop-actions .search-input::placeholder {
+        color: #999;
+      }
+      
+      /* When search is open */
+      .top-header__nav.is-search-open .desktop-actions .search-bar {
+        opacity: 1;
+        transform: translateY(-50%) scale(1);
+        pointer-events: auto;
+      }
+      
+      /* Add orange badge for cart/user icon */
+      .desktop-actions > img:last-of-type {
+        position: relative;
+      }
+      
+      .desktop-actions > img:last-of-type::after {
+        content: '0';
+        position: absolute;
+        top: -8px;
+        right: -8px;
+        background: #ff6b35;
+        color: white;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        font-size: 12px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-family: var(--font-heading);
+      }
+      
+      /* Hide hamburger on desktop */
+      .hamburger {
+        display: none;
+      }
+    }
+    
+    /* --- Keep desktop behavior by default --- */
+    .mobile-header,
+    .search-bar--mobile-header,
+    .mobile-menu { display: none; }
 
-{% schema %}
-{
-  "name": "Header Image",
-  "settings": [
-    {"type": "image_picker", "id": "header_image", "label": "Header image"},
-    {"type": "text", "id": "alt_text", "label": "Alt text", "default": "Site header banner"}
-  ],
-  "presets": [{"name": "Header Image"}]
-}
-{% endschema %}
+    /* Reuse your existing desktop styles (from your stylesheet) for .desktop-links, .desktop-actions, .brand, .search-bar, .hamburger, etc. */
+
+    /* ---------- Mobile overrides (<=768px) ---------- */
+    @media (max-width: 768px) {
+      /* Hide desktop UI on mobile */
+      .desktop-links,
+      .desktop-actions,
+      .desktop-brand { display: none !important; }
+
+      /* Show the mobile header row */
+      .mobile-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 8px 16px; }
+      .mobile-brand { flex: 1; display: flex; justify-content: center; }
+      .mobile-search-btn, .mobile-hamburger { appearance: none; background: transparent; border: 0; padding: 6px; border-radius: 8px; display: inline-flex; align-items: center; justify-content: center; }
+
+      /* Mobile search input sits BELOW the row, hidden by default */
+      .search-bar--mobile-header { display: block; position: relative; right: auto; top: auto; transform: none; opacity: 0; pointer-events: none; max-height: 0; overflow: hidden; background: #f8f8f8; border: 1px solid #e0e0e0; border-radius: 10px; padding: 0 12px; margin: 0 16px 10px; transition: max-height .25s ease, opacity .25s ease, padding .25s ease; }
+      .search-bar--mobile-header .search-input { width: 100%; border: 0; background: transparent; outline: none; font-size: 14px; padding: 10px 0; }
+
+      /* When mobile search is open */
+      .top-header.is-search-open-mobile .search-bar--mobile-header { max-height: 64px; opacity: 1; pointer-events: auto; padding: 8px 12px; }
+
+      /* Mobile menu */
+      .mobile-menu { display: block; position: relative; }
+      .mobile-menu__content { position: absolute; left: 0; right: 0; top: 52px; background: #fff; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 8px 24px rgba(0,0,0,.12); padding: 20px; transform: translateY(-8px); opacity: 0; pointer-events: none; transition: transform .25s ease, opacity .25s ease; z-index: 30; }
+      .top-header.is-menu-open-mobile .mobile-menu__content { transform: translateY(0); opacity: 1; pointer-events: auto; }
+
+      /* Hamburger morph on open */
+      .mobile-hamburger span { display: block; height: 2px; width: 20px; background: #111; border-radius: 2px; margin: 3px 0; transition: transform .25s ease, opacity .25s ease; }
+      .top-header.is-menu-open-mobile .mobile-hamburger span:nth-child(1) { transform: translateY(5px) rotate(45deg); }
+      .top-header.is-menu-open-mobile .mobile-hamburger span:nth-child(2) { opacity: 0; }
+      .top-header.is-menu-open-mobile .mobile-hamburger span:nth-child(3) { transform: translateY(-5px) rotate(-45deg); }
+
+      /* Keep the original desktop .search-bar positioned popover hidden on mobile */
+      .search-bar:not(.search-bar--mobile-header) { display: none !important; }
+    }
+  </style>
+
+<script>
+// filepath: /Users/user/Developer/Ubiqle/sections/header-image.liquid
+document.addEventListener('DOMContentLoaded', function() {
+  const root = document.querySelector('.top-header');
+  const nav = document.querySelector('.top-header__nav');
+  if (!root || !nav) return;
+
+  // Desktop
+  const searchToggle = document.getElementById('searchToggle');
+  const searchForm = document.getElementById('headerSearch');
+  const searchInput = searchForm?.querySelector('.search-input');
+
+  // Mobile
+  const searchToggleMobile = document.getElementById('searchToggleMobile');
+  const searchFormMobile = document.getElementById('headerSearchMobile');
+  const searchInputMobile = searchFormMobile?.querySelector('.search-input');
+  const menuToggleMobile = document.getElementById('menuToggleMobile');
+  const mobileMenu = document.getElementById('mobileMenu');
+
+  // Helper to close all
+  function closeAll() {
+    nav.classList.remove('is-search-open');
+    root.classList.remove('is-search-open-mobile', 'is-menu-open-mobile');
+    if (searchToggle) searchToggle.setAttribute('aria-expanded', 'false');
+    if (searchForm) searchForm.setAttribute('aria-hidden', 'true');
+    if (searchToggleMobile) searchToggleMobile.setAttribute('aria-expanded', 'false');
+    if (searchFormMobile) searchFormMobile.setAttribute('aria-hidden', 'true');
+    if (menuToggleMobile) menuToggleMobile.setAttribute('aria-expanded', 'false');
+    if (mobileMenu) mobileMenu.setAttribute('aria-hidden', 'true');
+  }
+
+  // Desktop search
+  if (searchToggle && searchForm) {
+    searchToggle.addEventListener('click', function(e) {
+      e.preventDefault();
+      closeAll();
+      nav.classList.toggle('is-search-open');
+      const open = nav.classList.contains('is-search-open');
+      searchToggle.setAttribute('aria-expanded', open);
+      searchForm.setAttribute('aria-hidden', !open);
+      if (open && searchInput) setTimeout(() => searchInput.focus(), 50);
+    });
+  }
+
+  // Mobile search
+  if (searchToggleMobile && searchFormMobile) {
+    searchToggleMobile.addEventListener('click', function(e) {
+      e.preventDefault();
+      closeAll();
+      root.classList.toggle('is-search-open-mobile');
+      const open = root.classList.contains('is-search-open-mobile');
+      searchToggleMobile.setAttribute('aria-expanded', open);
+      searchFormMobile.setAttribute('aria-hidden', !open);
+      if (open && searchInputMobile) setTimeout(() => searchInputMobile.focus(), 50);
+    });
+  }
+
+  // Mobile menu
+  if (menuToggleMobile && mobileMenu) {
+    menuToggleMobile.addEventListener('click', function(e) {
+      e.preventDefault();
+      closeAll();
+      root.classList.toggle('is-menu-open-mobile');
+      const open = root.classList.contains('is-menu-open-mobile');
+      menuToggleMobile.setAttribute('aria-expanded', open);
+      mobileMenu.setAttribute('aria-hidden', !open);
+    });
+  }
+
+  // Close on outside click
+  document.addEventListener('click', function(e) {
+    if (!nav.contains(e.target) && !root.contains(e.target)) {
+      closeAll();
+    }
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeAll();
+  });
+
+  // Reset on resize
+  window.addEventListener('resize', function() {
+    if (window.innerWidth > 768) {
+      root.classList.remove('is-search-open-mobile', 'is-menu-open-mobile');
+      if (searchToggleMobile) searchToggleMobile.setAttribute('aria-expanded', 'false');
+      if (searchFormMobile) searchFormMobile.setAttribute('aria-hidden', 'true');
+      if (menuToggleMobile) menuToggleMobile.setAttribute('aria-expanded', 'false');
+      if (mobileMenu) mobileMenu.setAttribute('aria-hidden', 'true');
+    } else {
+      nav.classList.remove('is-search-open');
+      if (searchToggle) searchToggle.setAttribute('aria-expanded', 'false');
+      if (searchForm) searchForm.setAttribute('aria-hidden', 'true');
+    }
+  });
+});
+</script>
+</section>

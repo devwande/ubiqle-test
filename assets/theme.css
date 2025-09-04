@@ -79,6 +79,194 @@
 }
 
 /* Mobile Menu - Enhanced */
+/* Mobile Header Layout */
+
+/* Mobile Header Layout - Target screens ≤768px */
+@media (max-width: 768px) {
+  .desktop-links,
+  .desktop-actions,
+  .desktop-brand {
+    display: none !important;
+  }
+  
+  .desktop-header {
+    display: none !important;
+  }
+  
+  /* Show mobile header */
+  .mobile-header {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 8px 16px;
+  }
+  
+  .mobile-search-btn,
+  .mobile-hamburger {
+    display: inline-flex !important;
+    padding: 8px;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+    appearance: none;
+    background: transparent;
+    border: 0;
+  }
+  
+  .mobile-search-btn:hover,
+  .mobile-hamburger:hover {
+    background: rgba(0, 0, 0, 0.05);
+  }
+  
+  .mobile-brand {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    order: 2;
+  }
+  
+  .mobile-search-btn {
+    order: 1;
+  }
+  
+  .mobile-hamburger {
+    order: 3;
+  }
+  
+  /* Mobile search bar - appears below header */
+  .search-bar--mobile-header {
+    display: block;
+    position: relative;
+    top: auto;
+    left: 0;
+    right: 0;
+    background: #f8f8f8;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 0 12px;
+    margin: 0 16px 10px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    pointer-events: none;
+    transition: max-height 0.25s ease, opacity 0.25s ease, padding 0.25s ease;
+  }
+  
+  .search-bar--mobile-header .search-input {
+    width: 100%;
+    border: 0;
+    background: transparent;
+    outline: none;
+    font-size: 14px;
+    padding: 10px 0;
+  }
+  
+  .top-header.is-search-open-mobile .search-bar--mobile-header {
+    max-height: 64px;
+    opacity: 1;
+    pointer-events: auto;
+    padding: 8px 12px;
+  }
+  
+  /* Mobile menu */
+  .mobile-menu {
+    display: block !important;
+    position: relative;
+  }
+  
+  .mobile-menu__content {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 52px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    padding: 20px;
+    transform: translateY(-8px);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+    z-index: 30;
+  }
+  
+  .top-header.is-menu-open-mobile .mobile-menu__content {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+  
+  /* Hamburger animation for mobile */
+  .mobile-hamburger span {
+    display: block;
+    height: 2px;
+    width: 20px;
+    background: #111;
+    border-radius: 2px;
+    margin: 3px 0;
+    transition: transform 0.25s ease, opacity 0.25s ease;
+  }
+  
+  .top-header.is-menu-open-mobile .mobile-hamburger span:nth-child(1) {
+    transform: translateY(5px) rotate(45deg);
+  }
+  
+  .top-header.is-menu-open-mobile .mobile-hamburger span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .top-header.is-menu-open-mobile .mobile-hamburger span:nth-child(3) {
+    transform: translateY(-5px) rotate(-45deg);
+  }
+  
+  /* Hide desktop search bar on mobile */
+  .search-bar:not(.search-bar--mobile-header) {
+    display: none !important;
+  }
+}
+
+/* Hide mobile elements by default */
+.mobile-header,
+.search-bar--mobile-header {
+  display: none;
+}
+
+/* Desktop behavior */
+@media (min-width: 769px) {
+  .mobile-header,
+  .search-bar--mobile-header,
+  .mobile-menu {
+    display: none !important;
+  }
+  
+  .desktop-header {
+    display: flex !important;
+  }
+}
+
+/* Ensure desktop header hides on mobile */
+@media (max-width: 768px) {
+  .desktop-links,
+  .desktop-actions {
+    display: none;
+  }
+
+  .mobile-header {
+    display: flex;
+  }
+}
+
+/* Desktop (default) */
+@media (min-width: 769px) {
+  .mobile-header,
+  .search-bar--mobile-header {
+    display: none;
+  }
+}
+
+
 .mobile-menu {
   position: relative;
   display: none;
@@ -144,82 +332,9 @@
 .mobile-icons img:hover {
   transform: scale(1.1);
 }
-/* Mobile Search Enhancement */
-.search-bar--mobile {
-  position: relative;
-  right: auto;
-  top: auto;
-  transform: none;
-  min-width: auto;
-  opacity: 0;
-  pointer-events: none;
-  margin-left: auto;
-  background: #f8f8f8;
-  border: 1px solid #e0e0e0;
-  border-radius: 8px;
-  padding: 8px 12px;
-  margin-top: 8px;
-  width: 100%;
-  transition: var(--transition);
-}
-
-.search-bar--mobile .search-input {
-  width: 100%;
-  border: none;
-  background: transparent;
-  outline: none;
-  font-size: 14px;
-  padding: 4px 0;
-}
-
-.top-header__nav.is-search-open .search-bar--mobile {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-@media (max-width: 900px){
-  .desktop-links{display:none !important}
-  .desktop-actions > img{display:none}
-  .brand{position:absolute;left:50%;transform:translateX(-50%);display:flex;align-items:center}
-  .hamburger{display:inline-flex}
-  .mobile-menu{display:block}
-  .mobile-menu__content{top:48px}
-  .top-header__nav.is-menu-open .mobile-menu__content{transform:translateY(0);opacity:1;pointer-events:auto}
-  .top-header__nav{position:relative}
-}
-
-@media (max-width: 480px){
-  .search-bar{right:calc(100% + 8px);min-width:220px;max-width:70vw}
-}
-
-.header-nav {
-    display: flex;
-    align-items: center;
-    font-style: SemiBold;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.nav-items{
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
-.nav-items > * + * {
-    margin-left: 0.125rem;
-}
-
-.header-nav > * + * {
-    margin-left: 2.5rem; 
-}
 
 
-.header-nav__container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+
 /* Accessibility and Utility Classes */
 .visually-hidden {
   position: absolute !important;
@@ -297,9 +412,7 @@ h3, .card__title, .category__title {
   font-weight: 600;
 }
 
-h4, h5, h6, .mobile-link {
-  font-weight: 600;
-}
+
 
 /* Special heading treatments */
 .hero__dense, .hero__pxi {
