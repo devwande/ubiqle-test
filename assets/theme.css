@@ -373,6 +373,36 @@
   outline: none;
 }
 
+/* Section Spacing */
+.section-hero,
+.section-new-drops,
+.categories,
+.reviews,
+.newsletter-footer {
+  margin-bottom: 60px;
+}
+
+/* Responsive section spacing */
+@media (max-width: 768px) {
+  .section-hero,
+  .section-new-drops,
+  .categories,
+  .reviews,
+  .newsletter-footer {
+    margin-bottom: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-hero,
+  .section-new-drops,
+  .categories,
+  .reviews,
+  .newsletter-footer {
+    margin-bottom: 32px;
+  }
+}
+
 /* Base styles */
 * {
   box-sizing: border-box;
