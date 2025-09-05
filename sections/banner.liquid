@@ -17,11 +17,20 @@
       <div class="hero__image">
         {% if section.settings.hero_image != blank %}
           <img 
-            src="{{ section.settings.hero_image | image_url: width: 1600 }}" 
+            src="{{ section.settings.hero_image | image_url: width: 800, format: 'webp' }}" 
+            srcset="
+              {{ section.settings.hero_image | image_url: width: 480, format: 'webp' }} 480w,
+              {{ section.settings.hero_image | image_url: width: 800, format: 'webp' }} 800w,
+              {{ section.settings.hero_image | image_url: width: 1200, format: 'webp' }} 1200w,
+              {{ section.settings.hero_image | image_url: width: 1600, format: 'webp' }} 1600w
+            "
+            sizes="(max-width: 768px) 100vw, 1600px"
             alt="{{ section.settings.hero_heading | escape }}" 
             width="1600" 
             height="700" 
             loading="eager" 
+            fetchpriority="high"
+            decoding="async"
             class="hero__img"
           />
         {% else %}
@@ -31,6 +40,8 @@
             width="1600" 
             height="700" 
             loading="eager" 
+            fetchpriority="high"
+            decoding="async"
             class="hero__img"
           />
         {% endif %}
@@ -53,8 +64,8 @@
       
       <!-- Thumbnail images on the right -->
       <div class="hero__thumbnails">
-          <img src="{{ 'Placeholder1.svg' | asset_url }}" alt="Product thumbnail 1" loading="lazy" width="" height="" />
-          <img src="{{ 'Placeholder2.svg' | asset_url }}" alt="Product thumbnail 2" loading="lazy" width="" height=""/>
+          <img src="{{ 'Placeholder1.svg' | asset_url }}" alt="Product thumbnail 1" loading="lazy" width="100" height="100" />
+          <img src="{{ 'Placeholder2.svg' | asset_url }}" alt="Product thumbnail 2" loading="lazy" width="100" height="100"/>
       </div>
       
       <!-- Slider indicators -->
@@ -95,6 +106,8 @@ document.addEventListener("DOMContentLoaded", function () {
     img.alt = `Nike product image ${i+1}`;
     img.width = 1600;
     img.height = 700;
+    img.loading = "lazy"; // optimize secondary images
+    img.decoding = "async";
     img.className = "hero__img";
     slide.appendChild(img);
     track.appendChild(slide);
