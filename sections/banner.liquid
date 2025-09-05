@@ -92,7 +92,7 @@ document.addEventListener("DOMContentLoaded", function () {
   mainSlide.appendChild(heroImage.cloneNode(true));
   track.appendChild(mainSlide);
 
-  // Create slides with Nike2.jpeg and Nike3.jpeg
+  // Create slides with Nike2.jpeg and Nike3.jpeg (with contrast)
   const nikeImages = [
     '{{ "Nike2.jpeg" | asset_url }}',
     '{{ "Nike3.jpeg" | asset_url }}'
@@ -106,9 +106,9 @@ document.addEventListener("DOMContentLoaded", function () {
     img.alt = `Nike product image ${i+1}`;
     img.width = 1600;
     img.height = 700;
-    img.loading = "lazy"; // optimize secondary images
+    img.loading = "lazy"; 
     img.decoding = "async";
-    img.className = "hero__img";
+    img.className = "hero__img hero__img--contrast"; // add contrast class
     slide.appendChild(img);
     track.appendChild(slide);
   });
@@ -197,6 +197,13 @@ document.addEventListener("DOMContentLoaded", function () {
   updateCarousel(0);
 });
 </script>
+
+<style>
+/* Contrast filter for bright images */
+.hero__img--contrast {
+  filter: contrast(1.5) brightness(0.7);
+}
+</style>
 </section>
 
 {% schema %}
